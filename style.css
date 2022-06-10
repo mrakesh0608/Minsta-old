@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+}
+body{
+    max-width: 100vw;
+}
+#head{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    padding: 5px 0;
+}
+#head,#bottom{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#head{
+    justify-content: space-between;
+}
+#head > *{
+    padding: 0 20px;
+}
+#content{
+    height: 800px;
+    background-color: gray;
+}
+#bottom{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    padding: 5px 0;
+}
+.head-btn , .bottom-btn{
+    width: 40px;
+    height: 40px;
+}
+.head-btn img, .bottom-btn img{
+    width: 100%;
+    object-fit: contain;
+    cursor: pointer;
+}
