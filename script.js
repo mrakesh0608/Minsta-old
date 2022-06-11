@@ -2,7 +2,7 @@ const bottom_btn = document.getElementsByClassName('bottom-btn');
 
 Array.from(bottom_btn).forEach(btn =>{
     btn.addEventListener('click',(e)=>{
-        showeffect(e.target.closest('div').id);
+        showeffect(btn.id);
     });
 });
 
