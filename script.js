@@ -2,18 +2,17 @@ const bottom_btn = document.getElementsByClassName('bottom-btn');
 
 Array.from(bottom_btn).forEach(btn =>{
     btn.addEventListener('click',(e)=>{
-        btn_id = e.target.closest('div').id;
-        showeffect(btn_id);
-    })
+        showeffect(e.target.closest('div').id);
+    });
 });
 
-var currentTab = 'home';
+let currentTab = 'home';
 const path_i = (document.getElementById(currentTab).childNodes[0].src).indexOf('icons/');
 const path = (document.getElementById(currentTab).childNodes[0].src).substring(0,path_i+6)
-console.log(path);
+// console.log(path);
 
 function showeffect(id){
-    console.log(id);
+    // console.log(id);
     document.getElementById(currentTab).childNodes[0].src =  path + currentTab + '.png';
     document.getElementById(id).childNodes[0].src =  path + id + '-on.png';
     currentTab = id;
