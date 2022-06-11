@@ -22,6 +22,9 @@ body{
 #head > *{
     padding: 0 20px;
 }
+#head h2{
+    font-family: cursive;
+}
 #content{
     height: 800px;
     background-color: gray;
