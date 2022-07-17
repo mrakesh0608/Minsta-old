@@ -53,3 +53,27 @@ window.addEventListener('scroll', ()=> {
     pre_ScrollY = window.scrollY;
 });
 //Scroll Event - End
+
+//Like - Start
+let like_Class = document.getElementsByClassName('like');
+
+Array.from(like_Class).forEach( (post) =>{
+    
+    post.addEventListener('click',(e)=>{
+        e.target.src =  path + 'color_heart.png';
+    });
+});
+//Like -End
+
+//Image dbClick Like -start
+let post_Content = document.getElementsByClassName('post-content');
+
+Array.from(post_Content).forEach( (post) =>{
+    
+    post.addEventListener('dblclick',(e)=>{
+        let post = e.target.parentElement.parentElement;
+        let likepost = post.querySelector('.like');
+        likepost.childNodes[0].src =  path + 'color_heart.png';
+    });
+});
+//Image dbClick Like -End
