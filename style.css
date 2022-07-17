@@ -63,6 +63,7 @@ body{
     align-items: center;
 }
 .post img{
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -78,8 +79,15 @@ body{
     height: 30px;
 }
 .post-meta-b img{
+    
     width: 100%;
+    height: 100%;
     object-fit: contain;
     cursor: pointer;
+}
+@media(min-width:600px){
+    .post-content{
+        height: 350px;
+    }
 }
 /* Post End */
