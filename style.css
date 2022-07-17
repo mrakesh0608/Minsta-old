@@ -57,10 +57,24 @@ body{
     padding: 0 10px;
 }
 .post-meta-t{
-    height: 30px;
+    height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.post-user-img{
+    border: 2px black solid;
+    border-radius: 50%;
+}
+.post-meta-t div{
+    width: 30px;
+    height: 30px;
+}
+.post-meta-t img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
 }
 .post img{
     display: block;
