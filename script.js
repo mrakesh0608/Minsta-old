@@ -60,7 +60,10 @@ let like_Class = document.getElementsByClassName('like');
 Array.from(like_Class).forEach( (post) =>{
     
     post.addEventListener('click',(e)=>{
-        e.target.src =  path + 'color_heart.png';
+        if( (path+'like.png') === e.target.src){
+            e.target.src =  path + 'color_heart.png';
+        }
+        else e.target.src =  path + 'like.png';
     });
 });
 //Like -End
