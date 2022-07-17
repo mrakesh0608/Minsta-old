@@ -89,10 +89,10 @@ Array.from(Share_Class).forEach( (post) =>{
     post.addEventListener('click', async (e)=>{
         try {
             let post = e.target.parentElement.parentElement;
-            let likepost = post.querySelector('.like');
+            let postContent = post.querySelector('.post-content');
             
 
-            const response = await fetch(likepost.childNodes[0].src);
+            const response = await fetch(postContent.childNodes[0].src);
             const blob = await response.blob();
             const filesArray = [
                 new File(
