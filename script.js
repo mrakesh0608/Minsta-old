@@ -36,3 +36,21 @@ function showeffect(list,id){
     }
 }
 */
+
+//Scroll Event - Start
+let timer = null;
+window.addEventListener('scroll', ()=> {
+    
+    if(timer !== null) {
+        document.getElementById('head').style.display = 'none';
+        document.getElementById('bottom').style.display = 'none';
+        clearTimeout(timer);        
+    }
+
+    timer = setTimeout( ()=> {
+        document.getElementById('head').style.display = 'flex';
+        document.getElementById('bottom').style.display = 'flex';
+    }, 150);
+
+}, false);
+//Scroll Event - End
