@@ -54,7 +54,7 @@ a{
 .post{
     max-width: 100vw;
     background-color: burlywood;
-    border-bottom: 2px green solid;
+    border-bottom: 2px gray solid;
 }
 .post-meta{
     background-color: white;
