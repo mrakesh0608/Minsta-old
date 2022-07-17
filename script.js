@@ -107,6 +107,8 @@ Array.from(Share_Class).forEach( (share) =>{
             
             const shareData = {
                 files: filesArray,
+                title:'Images',
+                text:'Instagram Posts'
             };
             
             navigator.share(shareData);
