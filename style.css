@@ -15,15 +15,16 @@ a{
 
     background-color: white;
     width: 100%;
-    position: sticky;
     padding: 5px 0;
 }
 #head{
+    position: sticky;
     top: 0;
     justify-content: space-between;
     border-bottom: 1px gray solid;
 }
 #bottom{
+    position: fixed;
     bottom: 0;
     justify-content: space-evenly;
 }
@@ -59,14 +60,11 @@ a{
 .post-meta{
     background-color: white;
     padding: 5px 10px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 .post-meta-icons-div{
     width: 30px;
     height: 30px;
+    margin-right: 10px;
 }
 .post img{
     display: block;
@@ -76,12 +74,14 @@ a{
     cursor: pointer;
 }
 /* Post Meta Head Start*/
+.post-meta-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .post-user{
     display: flex;
     align-items: center;
-}
-.post-user > *{
-    margin-right: 10px;
 }
 .post-user-img{
     border: 1px black solid;
@@ -89,7 +89,13 @@ a{
 }
 /* Post Meta Head End*/
 /* Post Meta Bottom Start*/
-
+.post-meta-bottom-1, .post-meta-bottom-1-1{
+    display: flex;
+    align-items: center;
+}
+.post-meta-bottom-1{
+    justify-content: space-between;
+}
 /* Post Meta Bottom End*/
 @media(min-width:600px){
     .post-content{
