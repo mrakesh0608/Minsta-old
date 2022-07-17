@@ -84,16 +84,16 @@ Array.from(post_Content).forEach( (post) =>{
 //Share - Start
 let Share_Class = document.getElementsByClassName('share');
 
-Array.from(Share_Class).forEach( (post) =>{
+Array.from(Share_Class).forEach( (share) =>{
     
-    post.addEventListener('click', async (e)=>{
+    share.addEventListener('click', async (e)=>{
         try {
-            let post = e.target.parentElement.parentElement;
+            let post = e.target.parentElement.parentElement.parentElement;
             let postContent = post.querySelector('.post-content');
             
-
             const response = await fetch(postContent.childNodes[0].src);
             const blob = await response.blob();
+
             const filesArray = [
                 new File(
                     [blob],
@@ -104,15 +104,16 @@ Array.from(Share_Class).forEach( (post) =>{
                     }
                 )
             ];
+            
             const shareData = {
                 files: filesArray,
             };
+            
             navigator.share(shareData);
-
             alert('post shared Successfully');
         }
         catch(err){
-            alert('Error Occured,'+err);
+            alert('Error Occured\n'+err);
         }
     });
 });
