@@ -4,12 +4,17 @@
 body{
     max-width: 100vw;
 }
-#head{
-    position: fixed;
-    top: 0;
+#head, #bottom{
+    position: sticky;
     width: 100%;
     background-color: white;
     padding: 5px 0;
+}
+#head{
+    top: 0;
+}
+#bottom{
+    bottom: 0;
 }
 #head,#bottom{
     display: flex;
@@ -18,23 +23,13 @@ body{
 }
 #head{
     justify-content: space-between;
+    border-bottom: 1px gray solid;
 }
 #head > *{
     padding: 0 20px;
 }
 #head h2{
     font-family: cursive;
-}
-#content{
-    height: 2000px;
-    background-color: gray;
-}
-#bottom{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: white;
-    padding: 5px 0;
 }
 .head-btn , .bottom-btn{
     width: 40px;
@@ -45,3 +40,49 @@ body{
     object-fit: contain;
     cursor: pointer;
 }
+
+#content{
+    height: 2000px;
+    background-color: gray;
+}
+
+/* Post Start */
+.post{
+    max-width: 100vw;
+    background-color: burlywood;
+    border-bottom: 2px green solid;
+}
+.post-meta{
+    background-color: white;
+    padding: 0 10px;
+}
+.post-meta-t{
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.post-content{
+    height: 300px;
+}
+.post img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.post-meta-b{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.post-meta-b div{
+    width: 30px;
+    height: 30px;
+}
+.post-meta-b img{
+    width: 100%;
+    object-fit: contain;
+    cursor: pointer;
+}
+/* Post End */

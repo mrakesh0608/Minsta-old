@@ -38,19 +38,18 @@ function showeffect(list,id){
 */
 
 //Scroll Event - Start
-let timer = null;
+let pre_ScrollY = window.scrollY;
 window.addEventListener('scroll', ()=> {
-    
-    if(timer !== null) {
-        document.getElementById('head').style.display = 'none';
-        document.getElementById('bottom').style.display = 'none';
-        clearTimeout(timer);        
-    }
 
-    timer = setTimeout( ()=> {
+    if(pre_ScrollY > window.scrollY){
         document.getElementById('head').style.display = 'flex';
         document.getElementById('bottom').style.display = 'flex';
-    }, 150);
-
-}, false);
+    }
+    else{
+        document.getElementById('head').style.display = 'none';
+        document.getElementById('bottom').style.display = 'none';
+    }
+    
+    pre_ScrollY = window.scrollY;
+});
 //Scroll Event - End
