@@ -80,3 +80,20 @@ Array.from(post_Content).forEach( (post) =>{
     });
 });
 //Image dbClick Like -End
+
+//Share - Start
+let Share_Class = document.getElementsByClassName('share');
+
+Array.from(Share_Class).forEach( (post) =>{
+    
+    post.addEventListener('click', async (e)=>{
+        try {
+            await navigator.share(post)
+            alert('post shared Successfully');
+        }
+        catch(err){
+            alert('Error Occured,'+err);
+        }
+    });
+});
+//Share -End
