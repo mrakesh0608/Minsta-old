@@ -84,11 +84,15 @@ a{
     align-items: center;
 }
 .post-user-img{
+    padding: 2px;
     border: 1px black solid;
     border-radius: 50%;
 }
 /* Post Meta Head End*/
 /* Post Meta Bottom Start*/
+.post-meta-bottom > div{
+    padding-bottom: 5px;
+}
 .post-meta-bottom-1, .post-meta-bottom-1-1{
     display: flex;
     align-items: center;
