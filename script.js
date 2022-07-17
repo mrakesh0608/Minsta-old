@@ -88,7 +88,27 @@ Array.from(Share_Class).forEach( (post) =>{
     
     post.addEventListener('click', async (e)=>{
         try {
-            await navigator.share(post)
+            let post = e.target.parentElement.parentElement;
+            let likepost = post.querySelector('.like');
+            
+
+            const response = await fetch(likepost.childNodes[0].src);
+            const blob = await response.blob();
+            const filesArray = [
+                new File(
+                    [blob],
+                    'meme.jpg',
+                    {
+                        type: "image/jpeg",
+                        lastModified: new Date().getTime()
+                    }
+                )
+            ];
+            const shareData = {
+                files: filesArray,
+            };
+            navigator.share(shareData);
+
             alert('post shared Successfully');
         }
         catch(err){
