@@ -56,7 +56,7 @@ a{
 .post{
     max-width: 100vw;
     background-color: burlywood;
-    border-bottom: 1px gray solid;
+    border-bottom: 1px rgb(221, 220, 220) solid;
 }
 .post-meta{
     background-color: white;

@@ -85,19 +85,25 @@ let post_Content = document.getElementsByClassName('post-content');
 Array.from(post_Content).forEach( (post) =>{
     
     post.addEventListener('dblclick',(e)=>{
-        let post = e.target.closest('.post');
-
+        
+        const post = e.target.closest('.post');
+        const likepost = post.querySelector('.like');
+        const NOL = post.querySelector('.noOfLikes');
+        
         ani_Like(post,true);
+        
+        if( (path+'like.png') === likepost.childNodes[0].src){
 
-        let likepost = post.querySelector('.like');
-
-        likepost.childNodes[0].src =  path + 'color_heart.png';
+            likepost.childNodes[0].src =  path + 'color_heart.png';
+            NOL.innerHTML = parseInt(NOL.innerHTML) + 1;
+        }
     });
 });
 //Image dbClick Like -End
 //Like Animation Start
 const ani_Like = (post,flag)=>{
     
+    //remove all animated gifs if exists
     const repeat_ani = post.querySelectorAll('.ani-like');
     Array.from(repeat_ani).forEach( post =>{
         post.remove();
@@ -113,7 +119,7 @@ const ani_Like = (post,flag)=>{
         time = 800;
     }
     
-    //Clear all animated gifs
+    //Remove all animated gifs
     setTimeout(()=>{
         const repeat_ani = post.querySelectorAll('.ani-like');
         Array.from(repeat_ani).forEach( post =>{
@@ -124,7 +130,6 @@ const ani_Like = (post,flag)=>{
 //Like Animation End
 //Like -End
 
-
 //Share - Start
 let Share_Class = document.getElementsByClassName('share');
 
@@ -132,8 +137,8 @@ Array.from(Share_Class).forEach( (share) =>{
     
     share.addEventListener('click', async (e)=>{
         try {
-            let post = e.target.closest('.post');
-            let postContent = post.querySelector('.post-content');
+            const post = e.target.closest('.post');
+            const postContent = post.querySelector('.post-content');
             
             const response = await fetch(postContent.querySelector('img').src);
             const blob = await response.blob();
@@ -148,10 +153,7 @@ Array.from(Share_Class).forEach( (share) =>{
                     }
                 )
             ];
-            
-            const shareData = {
-                files: filesArray
-            };
+            const shareData = { files: filesArray };
             
             await navigator.share(shareData);
             alert('post shared Successfully');
