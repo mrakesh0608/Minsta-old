@@ -60,13 +60,22 @@ let like_Class = document.getElementsByClassName('like');
 Array.from(like_Class).forEach( (post) =>{
     
     post.addEventListener('click',(e)=>{
+        const post = e.target.closest('.post');
+        const NOL = post.querySelector('.noOfLikes');
         if( (path+'like.png') === e.target.src){
+            
+            ani_Like(post,true);
             e.target.src =  path + 'color_heart.png';
+            NOL.innerHTML = parseInt(NOL.innerHTML) + 1;
+            // console.log(typeof(NOL.innerHTML));
         }
-        else e.target.src =  path + 'like.png';
+        else{
+            ani_Like(post,false);
+            e.target.src =  path + 'like.png';
+            NOL.innerHTML = parseInt(NOL.innerHTML) - 1;
+        }
     });
 });
-//Like -End
 
 //Image dbClick Like -start
 let post_Content = document.getElementsByClassName('post-content');
@@ -74,12 +83,38 @@ let post_Content = document.getElementsByClassName('post-content');
 Array.from(post_Content).forEach( (post) =>{
     
     post.addEventListener('dblclick',(e)=>{
-        let post = e.target.parentElement.parentElement;
+        let post = e.target.closest('.post');
+
+        ani_Like(post,true);
+        
         let likepost = post.querySelector('.like');
+
         likepost.childNodes[0].src =  path + 'color_heart.png';
     });
 });
 //Image dbClick Like -End
+//Like Animation Start
+function ani_Like(post,flag){
+    
+    const postContent = post.querySelector('.post-content').innerHTML;
+
+    let time;
+    if(flag){
+        post.querySelector('.post-content').innerHTML += '<img src="icons/liked.gif" alt="like heart" class="ani-like">';
+        time = 1800;
+    }
+    else{
+        post.querySelector('.post-content').innerHTML += '<img src="icons/unliked.gif" alt="like heart" class="ani-like">'
+        time = 1300;
+    }
+    
+    setTimeout(()=>{
+        post.querySelector('.post-content').innerHTML = postContent;
+    },time);
+}
+//Like Animation End
+//Like -End
+
 
 //Share - Start
 let Share_Class = document.getElementsByClassName('share');
@@ -88,7 +123,7 @@ Array.from(Share_Class).forEach( (share) =>{
     
     share.addEventListener('click', async (e)=>{
         try {
-            let post = e.target.parentElement.parentElement.parentElement;
+            let post = e.target.closest('.post');
             let postContent = post.querySelector('.post-content');
             
             const response = await fetch(postContent.childNodes[0].src);
@@ -97,9 +132,9 @@ Array.from(Share_Class).forEach( (share) =>{
             const filesArray = [
                 new File(
                     [blob],
-                    'meme.jpg',
+                    'image.png',
                     {
-                        type: "image/jpeg",
+                        type: "image/png",
                         lastModified: new Date().getTime()
                     }
                 )
@@ -109,7 +144,7 @@ Array.from(Share_Class).forEach( (share) =>{
                 files: filesArray
             };
             
-            navigator.share(shareData);
+            await navigator.share(shareData);
             alert('post shared Successfully');
         }
         catch(err){
@@ -118,3 +153,17 @@ Array.from(Share_Class).forEach( (share) =>{
     });
 });
 //Share -End
+
+//Save Post - Start
+let save_Class = document.getElementsByClassName('save');
+
+Array.from(save_Class).forEach( (post) =>{
+    
+    post.addEventListener('click',(e)=>{
+        if( (path+'save.png') === e.target.src){
+            e.target.src =  path + 'saved.png';
+        }
+        else e.target.src =  path + 'save.png';
+    });
+});
+//Save Post -End

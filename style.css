@@ -27,6 +27,7 @@ a{
     position: fixed;
     bottom: 0;
     justify-content: space-evenly;
+    border-top: 1px gray solid;
 }
 #head > *{
     padding: 0 20px;
@@ -47,7 +48,6 @@ a{
 
 /* Content Start */
 #content{
-    height: 800px;
     background-color: gray;
 }
 
@@ -55,7 +55,7 @@ a{
 .post{
     max-width: 100vw;
     background-color: burlywood;
-    border-bottom: 2px gray solid;
+    border-bottom: 1px gray solid;
 }
 .post-meta{
     background-color: white;
@@ -89,6 +89,19 @@ a{
     border-radius: 50%;
 }
 /* Post Meta Head End*/
+
+/* Like Animation Start */
+.post-content{
+    position: relative;
+}
+.ani-like{
+    /* display: none !important; */
+    position: absolute;
+    top: 0;
+    transform: scale(0.5);
+}
+/* Like Animation Ends */
+
 /* Post Meta Bottom Start*/
 .post-meta-bottom > div{
     padding-bottom: 5px;
@@ -108,3 +121,10 @@ a{
 }
 /* Post End */
 /* Content End */
+.head-btn:hover, 
+.post-meta-icons-div:hover, 
+.bottom-btn:hover{
+    opacity: 75%;
+    transition: .5s ease;
+    transform: scale(1.2);
+}
