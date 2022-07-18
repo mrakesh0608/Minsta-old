@@ -141,7 +141,7 @@ Array.from(Share_Class).forEach( (share) =>{
             const filesArray = [
                 new File(
                     [blob],
-                    'meme.jpg',
+                    'image.jpg',
                     {
                         type: "image/jpeg",
                         lastModified: new Date().getTime()
