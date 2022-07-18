@@ -72,7 +72,9 @@ Array.from(like_Class).forEach( (post) =>{
         else{
             ani_Like(post,false);
             e.target.src =  path + 'like.png';
-            NOL.innerHTML = parseInt(NOL.innerHTML) - 1;
+            
+            if( parseInt(NOL.innerHTML) > 0 ) 
+                NOL.innerHTML = parseInt(NOL.innerHTML) - 1;
         }
     });
 });
@@ -94,22 +96,29 @@ Array.from(post_Content).forEach( (post) =>{
 });
 //Image dbClick Like -End
 //Like Animation Start
-function ani_Like(post,flag){
+const ani_Like = (post,flag)=>{
     
-    const postContent = post.querySelector('.post-content').innerHTML;
+    const repeat_ani = post.querySelectorAll('.ani-like');
+    Array.from(repeat_ani).forEach( post =>{
+        post.remove();
+    });
 
     let time;
     if(flag){
         post.querySelector('.post-content').innerHTML += '<img src="icons/liked.gif" alt="like heart" class="ani-like">';
-        time = 1700;
+        time = 850;
     }
     else{
         post.querySelector('.post-content').innerHTML += '<img src="icons/unliked.gif" alt="like heart" class="ani-like">'
-        time = 1200;
+        time = 800;
     }
     
+    //Clear all animated gifs
     setTimeout(()=>{
-        post.querySelector('.post-content').innerHTML = postContent;
+        const repeat_ani = post.querySelectorAll('.ani-like');
+        Array.from(repeat_ani).forEach( post =>{
+            post.remove();
+        });
     },time);
 }
 //Like Animation End
