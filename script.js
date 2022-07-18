@@ -1,3 +1,4 @@
+//Tab Switch -Start
 const bottom_btn = document.getElementsByClassName('bottom-btn');
 
 Array.from(bottom_btn).forEach(btn =>{
@@ -36,6 +37,7 @@ function showeffect(list,id){
     }
 }
 */
+//Tab Switch -End
 
 //Scroll Event - Start
 let pre_ScrollY = window.scrollY;
