@@ -135,7 +135,7 @@ Array.from(Share_Class).forEach( (share) =>{
             let post = e.target.closest('.post');
             let postContent = post.querySelector('.post-content');
             
-            const response = await fetch(postContent.childNodes[0].src);
+            const response = await fetch(postContent.querySelector('img').src);
             const blob = await response.blob();
 
             const filesArray = [
