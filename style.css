@@ -124,10 +124,10 @@ a{
 }
 /* Post End */
 /* Content End */
-.head-btn:hover, 
-.post-meta-icons-div:hover, 
-.bottom-btn:hover{
-    opacity: 75%;
-    transition: .5s ease;
-    transform: scale(1.2);
+.head-btn:active, 
+.post-meta-icons-div:active, 
+.bottom-btn:active{
+    opacity: 0.2;
+    transition: 0.5s ease;
+    transform: scale(1.5);
 }
