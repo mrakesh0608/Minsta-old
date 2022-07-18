@@ -86,7 +86,7 @@ Array.from(post_Content).forEach( (post) =>{
         let post = e.target.closest('.post');
 
         ani_Like(post,true);
-        
+
         let likepost = post.querySelector('.like');
 
         likepost.childNodes[0].src =  path + 'color_heart.png';
@@ -101,11 +101,11 @@ function ani_Like(post,flag){
     let time;
     if(flag){
         post.querySelector('.post-content').innerHTML += '<img src="icons/liked.gif" alt="like heart" class="ani-like">';
-        time = 1800;
+        time = 1700;
     }
     else{
         post.querySelector('.post-content').innerHTML += '<img src="icons/unliked.gif" alt="like heart" class="ani-like">'
-        time = 1300;
+        time = 1200;
     }
     
     setTimeout(()=>{
@@ -132,9 +132,9 @@ Array.from(Share_Class).forEach( (share) =>{
             const filesArray = [
                 new File(
                     [blob],
-                    'image.png',
+                    'image.jpg',
                     {
-                        type: "image/png",
+                        type: "image/jpeg",
                         lastModified: new Date().getTime()
                     }
                 )
